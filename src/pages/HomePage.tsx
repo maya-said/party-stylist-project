@@ -1,9 +1,11 @@
 import Button from "../components/Button";
+import SectionTitle from "../components/SectionTitle";
 
 const HomePage = () => {
   return (
     <div className="min-h-screen bg-[#fdf8f3]">
 
+      {/* Hero Section */}
       <section className="flex flex-col items-center justify-center text-center py-32 px-6">
 
         <h1 className="text-6xl font-bold text-black">
@@ -23,6 +25,16 @@ const HomePage = () => {
           <Button text="Contact Us" />
 
         </div>
+
+      </section>
+
+      {/* About Preview Section */}
+      <section className="py-20 px-6">
+
+        <SectionTitle
+          title="About Us"
+          subtitle="We create luxury event experiences with elegant styling and unforgettable decoration details."
+        />
 
       </section>
 
