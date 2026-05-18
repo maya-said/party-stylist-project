@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <nav className="bg-white shadow-md px-8 py-4">
+
       <div className="flex items-center justify-between">
 
         <h1 className="text-2xl font-bold text-black">
           Party Stylist
         </h1>
 
-        <div className="flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-6">
 
           <Link
             to="/"
@@ -33,7 +34,13 @@ const Navbar = () => {
           </Link>
 
         </div>
+
+        <button className="md:hidden text-3xl">
+          ☰
+        </button>
+
       </div>
+
     </nav>
   );
 };
