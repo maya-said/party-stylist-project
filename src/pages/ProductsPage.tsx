@@ -1,32 +1,38 @@
-import ProductCard from "../components/ProductCard";
+type ProductCardProps = {
+  title: string;
+  category: string;
+  price: string;
+};
 
-const ProductsPage = () => {
+const ProductCard = ({
+  title,
+  category,
+  price,
+}: ProductCardProps) => {
   return (
-    <div className="min-h-screen bg-[#fdf8f3] px-6 py-20">
+    <div className="bg-white rounded-2xl shadow-md overflow-hidden">
 
-      <h1 className="text-5xl font-bold text-center">
-        Our Products
-      </h1>
+      <div className="h-64 bg-gray-200"></div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+      <div className="p-6">
 
-        <ProductCard
-          title="Bride To Be Setup"
-          category="Wedding"
-          price="$250"
-        />
+        <p className="text-sm text-gray-500">
+          {category}
+        </p>
 
-        <ProductCard
-          title="Baby Shower Decoration"
-          category="Baby Shower"
-          price="$180"
-        />
+        <h3 className="text-2xl font-semibold mt-2">
+          {title}
+        </h3>
 
-        <ProductCard
-          title="Birthday Styling"
-          category="Birthday"
-          price="$200"
-        />
+        <p className="mt-4 text-lg font-bold">
+          {price}
+        </p>
+
+        <button className="mt-6 w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition">
+
+          Add To Cart
+
+        </button>
 
       </div>
 
@@ -34,4 +40,4 @@ const ProductsPage = () => {
   );
 };
 
-export default ProductsPage;
+export default ProductCard;
