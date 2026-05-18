@@ -1,3 +1,5 @@
+import Button from "../components/Button";
+
 const HomePage = () => {
   return (
     <div className="min-h-screen bg-[#fdf8f3]">
@@ -16,13 +18,9 @@ const HomePage = () => {
 
         <div className="mt-8 flex gap-4">
 
-          <button className="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition">
-            Explore Products
-          </button>
+          <Button text="Explore Products" />
 
-          <button className="border border-black px-6 py-3 rounded-lg hover:bg-black hover:text-white transition">
-            Contact Us
-          </button>
+          <Button text="Contact Us" />
 
         </div>
 
