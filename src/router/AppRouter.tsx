@@ -9,15 +9,19 @@ import ContactPage from "../pages/ContactPage";
 const AppRouter = () => {
   return (
     <BrowserRouter>
+
       <Routes>
 
         <Route element={<MainLayout />}>
 
-          <Route path="/" element={<HomePage />} />
+          <Route
+            path="/"
+            element={<HomePage />}
+          />
 
           <Route
             path="/products"
-            element={<ProductsPage />}
+            element={<ProductsPage title={""} category={""} price={""} />}
           />
 
           <Route
@@ -28,6 +32,7 @@ const AppRouter = () => {
         </Route>
 
       </Routes>
+
     </BrowserRouter>
   );
 };
