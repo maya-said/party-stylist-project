@@ -1,6 +1,11 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+
+  // State to open and close mobile menu
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <nav className="bg-white shadow-md px-8 py-4">
 
@@ -10,6 +15,7 @@ const Navbar = () => {
           Party Stylist
         </h1>
 
+        {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-6">
 
           <Link
@@ -35,11 +41,36 @@ const Navbar = () => {
 
         </div>
 
-        <button className="md:hidden text-3xl">
+        {/* Mobile Burger Button */}
+        <button
+          className="md:hidden text-3xl"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
           ☰
         </button>
 
       </div>
+
+      {/* Mobile Menu */}
+      {
+        isMenuOpen && (
+          <div className="flex flex-col gap-4 mt-4 md:hidden">
+
+            <Link to="/">
+              Home
+            </Link>
+
+            <Link to="/products">
+              Products
+            </Link>
+
+            <Link to="/contact">
+              Contact
+            </Link>
+
+          </div>
+        )
+      }
 
     </nav>
   );
