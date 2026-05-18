@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
 
-  // State to open and close mobile menu
+  // State for mobile menu
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -15,7 +15,7 @@ const Navbar = () => {
           Party Stylist
         </h1>
 
-        {/* Desktop Links */}
+        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-6">
 
           <Link
@@ -54,17 +54,26 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {
         isMenuOpen && (
-          <div className="flex flex-col gap-4 mt-4 md:hidden">
+          <div className="flex flex-col gap-4 mt-4 md:hidden bg-white p-4 rounded-lg shadow-md">
 
-            <Link to="/">
+            <Link
+              to="/"
+              className="hover:text-gray-500 transition"
+            >
               Home
             </Link>
 
-            <Link to="/products">
+            <Link
+              to="/products"
+              className="hover:text-gray-500 transition"
+            >
               Products
             </Link>
 
-            <Link to="/contact">
+            <Link
+              to="/contact"
+              className="hover:text-gray-500 transition"
+            >
               Contact
             </Link>
 
