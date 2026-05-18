@@ -1,0 +1,43 @@
+type ProductCardProps = {
+  title: string;
+  category: string;
+  price: string;
+};
+
+const ProductCard = ({
+  title,
+  category,
+  price,
+}: ProductCardProps) => {
+  return (
+    <div className="bg-white rounded-2xl shadow-md overflow-hidden">
+
+      <div className="h-64 bg-gray-200"></div>
+
+      <div className="p-6">
+
+        <p className="text-sm text-gray-500">
+          {category}
+        </p>
+
+        <h3 className="text-2xl font-semibold mt-2">
+          {title}
+        </h3>
+
+        <p className="mt-4 text-lg font-bold">
+          {price}
+        </p>
+
+        <button className="mt-6 w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition">
+
+          Add To Cart
+
+        </button>
+
+      </div>
+
+    </div>
+  );
+};
+
+export default ProductCard;
