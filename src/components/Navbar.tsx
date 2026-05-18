@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
 
@@ -18,26 +18,38 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-6">
 
-          <Link
+          <NavLink
             to="/"
-            className="text-black hover:text-gray-500 transition"
+            className={({ isActive }) =>
+              isActive
+                ? "text-black font-bold"
+                : "text-gray-500 hover:text-black transition"
+            }
           >
             Home
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to="/products"
-            className="text-black hover:text-gray-500 transition"
+            className={({ isActive }) =>
+              isActive
+                ? "text-black font-bold"
+                : "text-gray-500 hover:text-black transition"
+            }
           >
             Products
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to="/contact"
-            className="text-black hover:text-gray-500 transition"
+            className={({ isActive }) =>
+              isActive
+                ? "text-black font-bold"
+                : "text-gray-500 hover:text-black transition"
+            }
           >
             Contact
-          </Link>
+          </NavLink>
 
         </div>
 
@@ -56,26 +68,38 @@ const Navbar = () => {
         isMenuOpen && (
           <div className="flex flex-col gap-4 mt-4 md:hidden bg-white p-4 rounded-lg shadow-md">
 
-            <Link
+            <NavLink
               to="/"
-              className="hover:text-gray-500 transition"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-black font-bold"
+                  : "text-gray-500 hover:text-black transition"
+              }
             >
               Home
-            </Link>
+            </NavLink>
 
-            <Link
+            <NavLink
               to="/products"
-              className="hover:text-gray-500 transition"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-black font-bold"
+                  : "text-gray-500 hover:text-black transition"
+              }
             >
               Products
-            </Link>
+            </NavLink>
 
-            <Link
+            <NavLink
               to="/contact"
-              className="hover:text-gray-500 transition"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-black font-bold"
+                  : "text-gray-500 hover:text-black transition"
+              }
             >
               Contact
-            </Link>
+            </NavLink>
 
           </div>
         )
