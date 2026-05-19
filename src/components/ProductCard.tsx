@@ -4,7 +4,12 @@ import { toast } from "sonner";
 
 import { FaHeart } from "react-icons/fa";
 
+import { useCart } from "../context/CartContext";
+
+import type { Product } from "../types/productTypes";
+
 type ProductCardProps = {
+  id: number;
   title: string;
   category: string;
   price: string;
@@ -14,6 +19,7 @@ type ProductCardProps = {
 };
 
 const ProductCard = ({
+  id,
   title,
   category,
   price,
@@ -24,6 +30,9 @@ const ProductCard = ({
 
   // Favorite State
   const [isFavorite, setIsFavorite] = useState(false);
+
+  // Cart Context
+  const { addToCart } = useCart();
 
   // Toggle Favorite
   const handleFavorite = (
@@ -39,6 +48,27 @@ const ProductCard = ({
     } else {
       toast.error("Removed from favorites");
     }
+  };
+
+  // Add To Cart
+  const handleAddToCart = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
+
+    event.stopPropagation();
+
+    const product: Product = {
+      id,
+      title,
+      category,
+      price,
+      image,
+      badge,
+    };
+
+    addToCart(product);
+
+    toast.success("Product added to cart");
   };
 
   return (
@@ -118,11 +148,7 @@ const ProductCard = ({
 
         {/* Add To Cart Button */}
         <button
-          onClick={(event) => {
-            event.stopPropagation();
-
-            toast.success("Product added to cart");
-          }}
+          onClick={handleAddToCart}
           className="mt-7 w-full bg-black text-white py-4 rounded-2xl transition-all duration-500 hover:bg-gray-900 hover:scale-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.3)] active:scale-95 tracking-wide font-semibold"
         >
 

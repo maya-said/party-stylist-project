@@ -175,14 +175,17 @@ const ProductsPage = () => {
 
               filteredProducts.map((product) => (
                 <ProductCard
-                  key={product.id}
-                  title={product.title}
-                  category={product.category}
-                  price={product.price}
-                  image={product.image}
-                  badge={product.badge}
-                  onClick={() => setSelectedProduct(product)}
-                />
+                  
+  key={product.id}
+  id={product.id}
+  title={product.title}
+  category={product.category}
+  price={product.price}
+  image={product.image}
+  badge={product.badge}
+  onClick={() => setSelectedProduct(product)}
+/>
+      
               ))
 
             ) : (
