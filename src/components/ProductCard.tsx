@@ -1,3 +1,4 @@
+import { toast } from "sonner";
 type ProductCardProps = {
   title: string;
   category: string;
@@ -39,11 +40,18 @@ const ProductCard = ({
           {price}
         </p>
 
-        <button className="mt-6 w-full bg-black text-white py-3 rounded-lg transition duration-300 hover:bg-gray-800 hover:scale-105 active:scale-95">
+       <button
+            onClick={(event) => {
+                 event.stopPropagation();
 
-          Add To Cart
+                  toast.success("Product added to cart");
+       }}
+        className="mt-6 w-full bg-black text-white py-3 rounded-lg transition duration-300 hover:bg-gray-800 hover:scale-105 active:scale-95"
+>
 
-        </button>
+  Add To Cart
+
+</button>
 
       </div>
 
