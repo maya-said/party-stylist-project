@@ -2,17 +2,23 @@ type ProductCardProps = {
   title: string;
   category: string;
   price: string;
+  image: string;
 };
 
 const ProductCard = ({
   title,
   category,
   price,
+  image,
 }: ProductCardProps) => {
   return (
     <div className="bg-white rounded-2xl shadow-md overflow-hidden">
 
-      <div className="h-64 bg-gray-200"></div>
+      <img
+        src={image}
+        alt={title}
+        className="w-full h-64 object-cover"
+      />
 
       <div className="p-6">
 

@@ -21,7 +21,7 @@ const AppRouter = () => {
 
           <Route
             path="/products"
-            element={<ProductsPage title={""} category={""} price={""} />}
+            element={<ProductsPage />}
           />
 
           <Route

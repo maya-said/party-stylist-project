@@ -14,11 +14,10 @@ const ProductsPage = () => {
         {
           products.map((product) => (
             <ProductCard
-              key={product.id}
-              title={product.title}
-              category={product.category}
-              price={product.price}
-            />
+                  key={product.id}
+                  title={product.title}
+                  category={product.category}
+                  price={product.price} image={""}            />
           ))
         }
 

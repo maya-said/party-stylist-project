@@ -1,38 +1,27 @@
-type ProductCardProps = {
-  title: string;
-  category: string;
-  price: string;
-};
+import ProductCard from "../components/ProductCard";
+import { products } from "../data/products";
 
-const ProductCard = ({
-  title,
-  category,
-  price,
-}: ProductCardProps) => {
+const ProductsPage = () => {
   return (
-    <div className="bg-white rounded-2xl shadow-md overflow-hidden">
+    <div className="min-h-screen bg-[#fdf8f3] px-6 py-20">
 
-      <div className="h-64 bg-gray-200"></div>
+      <h1 className="text-5xl font-bold text-center">
+        Our Products
+      </h1>
 
-      <div className="p-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
 
-        <p className="text-sm text-gray-500">
-          {category}
-        </p>
-
-        <h3 className="text-2xl font-semibold mt-2">
-          {title}
-        </h3>
-
-        <p className="mt-4 text-lg font-bold">
-          {price}
-        </p>
-
-        <button className="mt-6 w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition">
-
-          Add To Cart
-
-        </button>
+        {
+          products.map((product) => (
+            <ProductCard
+              key={product.id}
+              title={product.title}
+              category={product.category}
+              price={product.price}
+              image={product.image}
+            />
+          ))
+        }
 
       </div>
 
@@ -40,4 +29,4 @@ const ProductCard = ({
   );
 };
 
-export default ProductCard;
+export default ProductsPage;
