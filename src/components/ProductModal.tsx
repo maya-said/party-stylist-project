@@ -14,9 +14,15 @@ const ProductModal = ({
   onClose,
 }: ProductModalProps) => {
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-6">
+    <div
+      onClick={onClose}
+      className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-6"
+    >
 
-      <div className="bg-white rounded-2xl max-w-lg w-full overflow-hidden relative">
+      <div
+        onClick={(event) => event.stopPropagation()}
+        className="bg-white rounded-2xl max-w-lg w-full overflow-hidden relative"
+      >
 
         {/* Close Button */}
         <button
