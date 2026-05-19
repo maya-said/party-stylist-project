@@ -77,126 +77,152 @@ const ProductsPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#fdf8f3] px-6 py-20">
+    <div className="min-h-screen bg-[#fdf8f3]">
 
-      {/* Top Section */}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+      {/* Hero Section */}
+      <div className="bg-gradient-to-r from-[#f8ede3] via-[#fdf8f3] to-[#f5e6d3] px-6 py-24 shadow-sm">
 
-        <div>
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
 
-          <h1 className="text-5xl font-bold">
-            Our Products
-          </h1>
+          {/* Left Content */}
+          <div>
 
-          <p className="mt-4 text-gray-600">
-            Discover elegant event styling and luxury decorations.
-          </p>
+            <p className="uppercase tracking-[6px] text-sm text-gray-500 font-semibold">
 
-          <p className="mt-4 text-sm text-gray-500">
-            Showing {filteredProducts.length} products
-          </p>
+              Luxury Event Styling
 
-        </div>
+            </p>
 
-        <div className="flex flex-col md:flex-row gap-4">
+            <h1 className="text-5xl md:text-6xl font-bold mt-6 leading-tight">
 
-          {/* Search Input */}
-          <input
-            type="text"
-            placeholder="Search products..."
-            value={search}
-            onChange={(event) => setSearch(event.target.value)}
-            className="border border-gray-300 bg-white px-5 py-3 rounded-xl outline-none focus:ring-2 focus:ring-black transition"
-          />
+              Elegant Party <br />
 
-          {/* Category Select */}
-          <select
-            value={selectedCategory}
-            onChange={(event) =>
-              setSelectedCategory(event.target.value)
-            }
-            className="border border-gray-300 bg-white px-5 py-3 rounded-xl outline-none focus:ring-2 focus:ring-black transition"
-          >
+              Decorations & Styling
 
-            <option value="All">
-              All
-            </option>
+            </h1>
 
-            <option value="Wedding">
-              Wedding
-            </option>
+            <p className="mt-6 text-gray-600 text-lg max-w-2xl leading-8">
 
-            <option value="Birthday">
-              Birthday
-            </option>
+              Discover premium decorations, unforgettable event styling,
+              and luxury setups crafted for weddings, birthdays,
+              baby showers, and special celebrations.
 
-            <option value="Baby Shower">
-              Baby Shower
-            </option>
+            </p>
 
-          </select>
+            <p className="mt-6 text-sm text-gray-500">
 
-          {/* Sort Select */}
-          <select
-            value={sortOption}
-            onChange={(event) =>
-              setSortOption(event.target.value)
-            }
-            className="border border-gray-300 bg-white px-5 py-3 rounded-xl outline-none focus:ring-2 focus:ring-black transition"
-          >
+              Showing {filteredProducts.length} products
 
-            <option value="default">
-              Default
-            </option>
+            </p>
 
-            <option value="lowToHigh">
-              Price: Low To High
-            </option>
+          </div>
 
-            <option value="highToLow">
-              Price: High To Low
-            </option>
+          {/* Filters */}
+          <div className="bg-white p-6 rounded-3xl shadow-xl flex flex-col gap-4 min-w-[320px]">
 
-          </select>
+            {/* Search Input */}
+            <input
+              type="text"
+              placeholder="Search products..."
+              value={search}
+              onChange={(event) => setSearch(event.target.value)}
+              className="border border-gray-300 bg-white px-5 py-4 rounded-xl outline-none focus:ring-2 focus:ring-black transition"
+            />
+
+            {/* Category Select */}
+            <select
+              value={selectedCategory}
+              onChange={(event) =>
+                setSelectedCategory(event.target.value)
+              }
+              className="border border-gray-300 bg-white px-5 py-4 rounded-xl outline-none focus:ring-2 focus:ring-black transition"
+            >
+
+              <option value="All">
+                All Categories
+              </option>
+
+              <option value="Wedding">
+                Wedding
+              </option>
+
+              <option value="Birthday">
+                Birthday
+              </option>
+
+              <option value="Baby Shower">
+                Baby Shower
+              </option>
+
+            </select>
+
+            {/* Sort Select */}
+            <select
+              value={sortOption}
+              onChange={(event) =>
+                setSortOption(event.target.value)
+              }
+              className="border border-gray-300 bg-white px-5 py-4 rounded-xl outline-none focus:ring-2 focus:ring-black transition"
+            >
+
+              <option value="default">
+                Default Sorting
+              </option>
+
+              <option value="lowToHigh">
+                Price: Low To High
+              </option>
+
+              <option value="highToLow">
+                Price: High To Low
+              </option>
+
+            </select>
+
+          </div>
 
         </div>
 
       </div>
 
       {/* Products Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+      <div className="px-6 py-20 max-w-7xl mx-auto">
 
-        {
-          filteredProducts.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            filteredProducts.map((product) => (
-              <ProductCard
-                key={product.id}
-                title={product.title}
-                category={product.category}
-                price={product.price}
-                image={product.image}
-                badge={product.badge}
-                onClick={() => setSelectedProduct(product)}
-              />
-            ))
+          {
+            filteredProducts.length > 0 ? (
 
-          ) : (
+              filteredProducts.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  title={product.title}
+                  category={product.category}
+                  price={product.price}
+                  image={product.image}
+                  badge={product.badge}
+                  onClick={() => setSelectedProduct(product)}
+                />
+              ))
 
-            <div className="col-span-full text-center">
+            ) : (
 
-              <h2 className="text-3xl font-bold">
-                No Products Found
-              </h2>
+              <div className="col-span-full text-center">
 
-              <p className="mt-4 text-gray-500">
-                Try searching with another keyword.
-              </p>
+                <h2 className="text-3xl font-bold">
+                  No Products Found
+                </h2>
 
-            </div>
+                <p className="mt-4 text-gray-500">
+                  Try searching with another keyword.
+                </p>
 
-          )
-        }
+              </div>
+
+            )
+          }
+
+        </div>
 
       </div>
 
