@@ -67,6 +67,17 @@ const ProductCard = ({
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-500 z-10" />
 
+        {/* Quick View Text */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500 z-20">
+
+          <span className="bg-white text-black px-6 py-3 rounded-full font-semibold shadow-lg">
+
+            Quick View
+
+          </span>
+
+        </div>
+
         <img
           src={image}
           alt={title}
