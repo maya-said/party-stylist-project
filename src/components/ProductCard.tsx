@@ -86,13 +86,14 @@ const ProductCard = ({
           {price}
         </p>
 
+        {/* Add To Cart Button */}
         <button
           onClick={(event) => {
             event.stopPropagation();
 
             toast.success("Product added to cart");
           }}
-          className="mt-6 w-full bg-black text-white py-3 rounded-lg transition duration-300 hover:bg-gray-800 hover:scale-105 active:scale-95"
+          className="mt-6 w-full bg-black text-white py-3 rounded-lg transition-all duration-300 hover:bg-gray-800 hover:scale-105 hover:shadow-2xl active:scale-95"
         >
 
           Add To Cart
