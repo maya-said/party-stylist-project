@@ -52,7 +52,7 @@ const ContactPage = () => {
 
               <p className="mt-3 text-gray-500">
 
-                +961 70 123 456
+                +961 70 248 397 
 
               </p>
 
