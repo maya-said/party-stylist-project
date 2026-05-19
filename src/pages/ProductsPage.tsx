@@ -5,10 +5,10 @@ import { products } from "../data/products";
 
 const ProductsPage = () => {
 
-  // Search state
+  // Search State
   const [search, setSearch] = useState("");
 
-  // Filter products
+  // Filter Products
   const filteredProducts = products.filter((product) =>
     product.title.toLowerCase().includes(search.toLowerCase())
   );
@@ -46,15 +46,33 @@ const ProductsPage = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
 
         {
-          filteredProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              title={product.title}
-              category={product.category}
-              price={product.price}
-              image={product.image}
-            />
-          ))
+          filteredProducts.length > 0 ? (
+
+            filteredProducts.map((product) => (
+              <ProductCard
+                key={product.id}
+                title={product.title}
+                category={product.category}
+                price={product.price}
+                image={product.image}
+              />
+            ))
+
+          ) : (
+
+            <div className="col-span-full text-center">
+
+              <h2 className="text-3xl font-bold">
+                No Products Found
+              </h2>
+
+              <p className="mt-4 text-gray-500">
+                Try searching with another keyword.
+              </p>
+
+            </div>
+
+          )
         }
 
       </div>

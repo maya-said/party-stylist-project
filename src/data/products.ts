@@ -21,8 +21,8 @@ export const products = [
 
   {
     id: 3,
-    title: "Luxury Wedding Styling",
-    category: "Wedding",
+    title: "Birthday Party Decoration",
+    category: "Birthday party",
     price: "$350",
     image: party2,
   },
