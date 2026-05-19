@@ -24,24 +24,28 @@ const ProductModal = ({
       <motion.div
         initial={{
           opacity: 0,
-          scale: 0.8,
-          y: 40,
+          scale: 0.5,
+          y: 200,
+          rotate: -8,
         }}
 
         animate={{
           opacity: 1,
           scale: 1,
           y: 0,
+          rotate: 0,
         }}
 
         exit={{
           opacity: 0,
-          scale: 0.8,
-          y: 40,
+          scale: 0.5,
+          y: 200,
+          rotate: 8,
         }}
 
         transition={{
-          duration: 0.3,
+          duration: 0.5,
+          type: "spring",
         }}
 
         onClick={(event) => event.stopPropagation()}
@@ -51,7 +55,7 @@ const ProductModal = ({
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-2xl"
+          className="absolute top-4 right-4 text-2xl z-10"
         >
           ×
         </button>
@@ -78,7 +82,7 @@ const ProductModal = ({
             {price}
           </p>
 
-          <p className="mt-6 text-gray-600">
+          <p className="mt-6 text-gray-600 leading-7">
             Luxury event styling and premium decoration setup for unforgettable celebrations.
           </p>
 
