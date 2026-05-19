@@ -150,7 +150,7 @@ const HomePage = () => {
 
             {/* Main Image */}
             <img
-              src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=1200&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1400&auto=format&fit=crop"
               alt="Luxury Event"
               className="rounded-[40px] shadow-[0_30px_80px_rgba(0,0,0,0.2)] w-full h-[700px] object-cover"
             />
