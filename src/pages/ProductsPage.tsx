@@ -8,10 +8,23 @@ const ProductsPage = () => {
   // Search State
   const [search, setSearch] = useState("");
 
+  // Category State
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
   // Filter Products
-  const filteredProducts = products.filter((product) =>
-    product.title.toLowerCase().includes(search.toLowerCase())
-  );
+  const filteredProducts = products.filter((product) => {
+
+    const matchesSearch =
+      product.title
+        .toLowerCase()
+        .includes(search.toLowerCase());
+
+    const matchesCategory =
+      selectedCategory === "All" ||
+      product.category === selectedCategory;
+
+    return matchesSearch && matchesCategory;
+  });
 
   return (
     <div className="min-h-screen bg-[#fdf8f3] px-6 py-20">
@@ -31,14 +44,45 @@ const ProductsPage = () => {
 
         </div>
 
-        {/* Search Input */}
-        <input
-          type="text"
-          placeholder="Search products..."
-          value={search}
-          onChange={(event) => setSearch(event.target.value)}
-          className="border border-gray-300 bg-white px-5 py-3 rounded-xl outline-none focus:ring-2 focus:ring-black transition"
-        />
+        <div className="flex flex-col md:flex-row gap-4">
+
+          {/* Search Input */}
+          <input
+            type="text"
+            placeholder="Search products..."
+            value={search}
+            onChange={(event) => setSearch(event.target.value)}
+            className="border border-gray-300 bg-white px-5 py-3 rounded-xl outline-none focus:ring-2 focus:ring-black transition"
+          />
+
+          {/* Category Select */}
+          <select
+            value={selectedCategory}
+            onChange={(event) =>
+              setSelectedCategory(event.target.value)
+            }
+            className="border border-gray-300 bg-white px-5 py-3 rounded-xl outline-none focus:ring-2 focus:ring-black transition"
+          >
+
+            <option value="All">
+              All
+            </option>
+
+            <option value="Wedding">
+              Wedding
+            </option>
+
+            <option value="Birthday">
+              Birthday
+            </option>
+
+            <option value="Baby Shower">
+              Baby Shower
+            </option>
+
+          </select>
+
+        </div>
 
       </div>
 
