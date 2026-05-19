@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 type ProductModalProps = {
   title: string;
   category: string;
@@ -19,7 +21,23 @@ const ProductModal = ({
       className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-6"
     >
 
-      <div
+      <motion.div
+        initial={{
+          opacity: 0,
+          scale: 0.8,
+          y: 40,
+        }}
+
+        animate={{
+          opacity: 1,
+          scale: 1,
+          y: 0,
+        }}
+
+        transition={{
+          duration: 0.3,
+        }}
+
         onClick={(event) => event.stopPropagation()}
         className="bg-white rounded-2xl max-w-lg w-full overflow-hidden relative"
       >
@@ -60,7 +78,7 @@ const ProductModal = ({
 
         </div>
 
-      </div>
+      </motion.div>
 
     </div>
   );
