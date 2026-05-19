@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { AnimatePresence } from "framer-motion";
 
 import ProductCard from "../components/ProductCard";
 import ProductModal from "../components/ProductModal";
+import Loader from "../components/Loader";
 
 import { products } from "../data/products";
 
@@ -23,6 +24,20 @@ const ProductsPage = () => {
   // Modal State
   const [selectedProduct, setSelectedProduct] =
     useState<Product | null>(null);
+
+  // Loading State
+  const [loading, setLoading] = useState(true);
+
+  // Fake Loading
+  useEffect(() => {
+
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+
+  }, []);
 
   // Filter Products
   const filteredProducts = products
@@ -55,6 +70,11 @@ const ProductsPage = () => {
 
       return 0;
     });
+
+  // Loading Screen
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <div className="min-h-screen bg-[#fdf8f3] px-6 py-20">
