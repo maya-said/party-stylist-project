@@ -11,20 +11,40 @@ const ProductsPage = () => {
   // Category State
   const [selectedCategory, setSelectedCategory] = useState("All");
 
+  // Sort State
+  const [sortOption, setSortOption] = useState("default");
+
   // Filter Products
-  const filteredProducts = products.filter((product) => {
+  const filteredProducts = products
+    .filter((product) => {
 
-    const matchesSearch =
-      product.title
-        .toLowerCase()
-        .includes(search.toLowerCase());
+      const matchesSearch =
+        product.title
+          .toLowerCase()
+          .includes(search.toLowerCase());
 
-    const matchesCategory =
-      selectedCategory === "All" ||
-      product.category === selectedCategory;
+      const matchesCategory =
+        selectedCategory === "All" ||
+        product.category === selectedCategory;
 
-    return matchesSearch && matchesCategory;
-  });
+      return matchesSearch && matchesCategory;
+    })
+
+    .sort((a, b) => {
+
+      const priceA = Number(a.price.replace("$", ""));
+      const priceB = Number(b.price.replace("$", ""));
+
+      if (sortOption === "lowToHigh") {
+        return priceA - priceB;
+      }
+
+      if (sortOption === "highToLow") {
+        return priceB - priceA;
+      }
+
+      return 0;
+    });
 
   return (
     <div className="min-h-screen bg-[#fdf8f3] px-6 py-20">
@@ -85,6 +105,29 @@ const ProductsPage = () => {
 
             <option value="Baby Shower">
               Baby Shower
+            </option>
+
+          </select>
+
+          {/* Sort Select */}
+          <select
+            value={sortOption}
+            onChange={(event) =>
+              setSortOption(event.target.value)
+            }
+            className="border border-gray-300 bg-white px-5 py-3 rounded-xl outline-none focus:ring-2 focus:ring-black transition"
+          >
+
+            <option value="default">
+              Default
+            </option>
+
+            <option value="lowToHigh">
+              Price: Low To High
+            </option>
+
+            <option value="highToLow">
+              Price: High To Low
             </option>
 
           </select>
