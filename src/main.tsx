@@ -7,15 +7,21 @@ import "./index.css";
 
 import { Toaster } from "sonner";
 
+import { CartProvider } from "./context/CartContext";
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
 
-    <App />
+    <CartProvider>
 
-    <Toaster
-      position="top-right"
-      richColors
-    />
+      <App />
+
+      <Toaster
+        position="top-right"
+        richColors
+      />
+
+    </CartProvider>
 
   </React.StrictMode>
 );

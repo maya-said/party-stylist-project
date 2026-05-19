@@ -2,7 +2,7 @@ import {
   createContext,
   useContext,
   useState,
-  ReactNode,
+  type ReactNode,
 } from "react";
 
 import type { Product } from "../types/productTypes";
@@ -88,6 +88,7 @@ export const CartProvider = ({
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useCart = () => {
 
   const context = useContext(CartContext);
