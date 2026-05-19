@@ -42,6 +42,13 @@ const ProductsPage = () => {
             Discover elegant event styling and luxury decorations.
           </p>
 
+          {/* Product Count */}
+          <p className="mt-4 text-sm text-gray-500">
+
+            Showing {filteredProducts.length} products
+
+          </p>
+
         </div>
 
         <div className="flex flex-col md:flex-row gap-4">
