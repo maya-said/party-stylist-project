@@ -48,7 +48,7 @@ const ProductCard = ({
       {/* Favorite Button */}
       <button
         onClick={handleFavorite}
-        className="absolute top-4 right-4 z-10 bg-white/80 backdrop-blur-md p-3 rounded-full shadow-md transition duration-300 hover:scale-110"
+        className="absolute top-4 right-4 z-20 bg-white/80 backdrop-blur-md p-3 rounded-full shadow-md transition duration-300 hover:scale-110"
       >
 
         <FaHeart
@@ -62,7 +62,10 @@ const ProductCard = ({
       </button>
 
       {/* Image Container */}
-      <div className="overflow-hidden">
+      <div className="overflow-hidden relative">
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-500 z-10" />
 
         <img
           src={image}
