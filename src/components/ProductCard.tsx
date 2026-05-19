@@ -3,6 +3,7 @@ type ProductCardProps = {
   category: string;
   price: string;
   image: string;
+  onClick: () => void;
 };
 
 const ProductCard = ({
@@ -10,9 +11,13 @@ const ProductCard = ({
   category,
   price,
   image,
+  onClick,
 }: ProductCardProps) => {
   return (
-    <div className="bg-white rounded-2xl shadow-md overflow-hidden transition duration-300 hover:-translate-y-2 hover:shadow-2xl">
+    <div
+      onClick={onClick}
+      className="bg-white rounded-2xl shadow-md overflow-hidden transition duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer"
+    >
 
       <img
         src={image}

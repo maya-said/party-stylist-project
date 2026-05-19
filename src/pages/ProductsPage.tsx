@@ -1,7 +1,11 @@
 import { useState } from "react";
 
 import ProductCard from "../components/ProductCard";
+import ProductModal from "../components/ProductModal";
+
 import { products } from "../data/products";
+
+import type { Product } from "../types/productTypes";
 
 const ProductsPage = () => {
 
@@ -13,6 +17,10 @@ const ProductsPage = () => {
 
   // Sort State
   const [sortOption, setSortOption] = useState("default");
+
+  // Modal State
+  const [selectedProduct, setSelectedProduct] =
+    useState<Product | null>(null);
 
   // Filter Products
   const filteredProducts = products
@@ -62,11 +70,8 @@ const ProductsPage = () => {
             Discover elegant event styling and luxury decorations.
           </p>
 
-          {/* Product Count */}
           <p className="mt-4 text-sm text-gray-500">
-
             Showing {filteredProducts.length} products
-
           </p>
 
         </div>
@@ -149,6 +154,7 @@ const ProductsPage = () => {
                 category={product.category}
                 price={product.price}
                 image={product.image}
+                onClick={() => setSelectedProduct(product)}
               />
             ))
 
@@ -170,6 +176,19 @@ const ProductsPage = () => {
         }
 
       </div>
+
+      {/* Product Modal */}
+      {
+        selectedProduct && (
+          <ProductModal
+            title={selectedProduct.title}
+            category={selectedProduct.category}
+            price={selectedProduct.price}
+            image={selectedProduct.image}
+            onClose={() => setSelectedProduct(null)}
+          />
+        )
+      }
 
     </div>
   );
