@@ -12,7 +12,7 @@ const ProductCard = ({
   image,
 }: ProductCardProps) => {
   return (
-    <div className="bg-white rounded-2xl shadow-md overflow-hidden">
+    <div className="bg-white rounded-2xl shadow-md overflow-hidden transition duration-300 hover:-translate-y-2 hover:shadow-2xl">
 
       <img
         src={image}
@@ -35,9 +35,7 @@ const ProductCard = ({
         </p>
 
         <button className="mt-6 w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition">
-
           Add To Cart
-
         </button>
 
       </div>
