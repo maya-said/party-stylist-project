@@ -8,7 +8,7 @@ export const products = [
     title: "Bride To Be Setup",
     category: "Wedding",
     price: "$250",
-    image: party1,
+    image: party3,
   },
 
   {
@@ -16,7 +16,7 @@ export const products = [
     title: "Baby Shower Decoration",
     category: "Baby Shower",
     price: "$180",
-    image: party2,
+    image: party1,
   },
 
   {
@@ -24,6 +24,6 @@ export const products = [
     title: "Luxury Wedding Styling",
     category: "Wedding",
     price: "$350",
-    image: party3,
+    image: party2,
   },
 ];
