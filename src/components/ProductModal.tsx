@@ -1,68 +1,97 @@
-import { toast } from "sonner";
+import { motion } from "framer-motion";
 
-type ProductCardProps = {
+type ProductModalProps = {
   title: string;
   category: string;
   price: string;
   image: string;
-  onClick: () => void;
+  onClose: () => void;
 };
 
-const ProductCard = ({
+const ProductModal = ({
   title,
   category,
   price,
   image,
-  onClick,
-}: ProductCardProps) => {
+  onClose,
+}: ProductModalProps) => {
   return (
     <div
-      onClick={onClick}
-      className="bg-white rounded-2xl shadow-md overflow-hidden transition duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer group"
+      onClick={onClose}
+      className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 px-6"
     >
 
-      {/* Image Container */}
-      <div className="overflow-hidden">
+      <motion.div
+        initial={{
+          opacity: 0,
+          scale: 0.5,
+          y: 200,
+          rotate: -8,
+        }}
 
+        animate={{
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          rotate: 0,
+        }}
+
+        exit={{
+          opacity: 0,
+          scale: 0.5,
+          y: 200,
+          rotate: 8,
+        }}
+
+        transition={{
+          duration: 0.5,
+          type: "spring",
+        }}
+
+        onClick={(event) => event.stopPropagation()}
+        className="bg-white rounded-2xl max-w-lg w-full overflow-hidden relative"
+      >
+
+        {/* Close Button */}
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 text-2xl z-10"
+        >
+          ×
+        </button>
+
+        {/* Product Image */}
         <img
           src={image}
           alt={title}
-          className="w-full h-64 object-cover transition duration-500 group-hover:scale-125"
+          className="w-full h-80 object-cover"
         />
 
-      </div>
+        {/* Content */}
+        <div className="p-6">
 
-      <div className="p-6">
+          <p className="text-sm text-gray-500">
+            {category}
+          </p>
 
-        <p className="text-sm text-gray-500">
-          {category}
-        </p>
+          <h2 className="text-3xl font-bold mt-2">
+            {title}
+          </h2>
 
-        <h3 className="text-2xl font-semibold mt-2">
-          {title}
-        </h3>
+          <p className="mt-4 text-xl font-semibold">
+            {price}
+          </p>
 
-        <p className="mt-4 text-lg font-bold">
-          {price}
-        </p>
+          <p className="mt-6 text-gray-600 leading-7">
+            Luxury event styling and premium decoration setup for unforgettable celebrations.
+          </p>
 
-        <button
-          onClick={(event) => {
-            event.stopPropagation();
+        </div>
 
-            toast.success("Product added to cart");
-          }}
-          className="mt-6 w-full bg-black text-white py-3 rounded-lg transition duration-300 hover:bg-gray-800 hover:scale-105 active:scale-95"
-        >
-
-          Add To Cart
-
-        </button>
-
-      </div>
+      </motion.div>
 
     </div>
   );
 };
 
-export default ProductCard;
+export default ProductModal;

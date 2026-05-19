@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { toast } from "sonner";
 
 import { FaHeart } from "react-icons/fa";
@@ -17,6 +19,26 @@ const ProductCard = ({
   image,
   onClick,
 }: ProductCardProps) => {
+
+  // Favorite State
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  // Toggle Favorite
+  const handleFavorite = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
+
+    event.stopPropagation();
+
+    setIsFavorite(!isFavorite);
+
+    if (!isFavorite) {
+      toast.success("Added to favorites");
+    } else {
+      toast.error("Removed from favorites");
+    }
+  };
+
   return (
     <div
       onClick={onClick}
@@ -25,15 +47,17 @@ const ProductCard = ({
 
       {/* Favorite Button */}
       <button
-        onClick={(event) => {
-          event.stopPropagation();
-
-          toast.success("Added to favorites");
-        }}
+        onClick={handleFavorite}
         className="absolute top-4 right-4 z-10 bg-white/80 backdrop-blur-md p-3 rounded-full shadow-md transition duration-300 hover:scale-110"
       >
 
-        <FaHeart className="text-red-500" />
+        <FaHeart
+          className={`transition duration-300 ${
+            isFavorite
+              ? "text-red-500 scale-110"
+              : "text-gray-400"
+          }`}
+        />
 
       </button>
 
