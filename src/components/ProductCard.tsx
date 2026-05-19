@@ -34,8 +34,10 @@ const ProductCard = ({
           {price}
         </p>
 
-        <button className="mt-6 w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition">
+        <button className="mt-6 w-full bg-black text-white py-3 rounded-lg transition duration-300 hover:bg-gray-800 hover:scale-105 active:scale-95">
+
           Add To Cart
+
         </button>
 
       </div>
