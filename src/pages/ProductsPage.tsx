@@ -176,6 +176,7 @@ const ProductsPage = () => {
                 category={product.category}
                 price={product.price}
                 image={product.image}
+                badge={product.badge}
                 onClick={() => setSelectedProduct(product)}
               />
             ))

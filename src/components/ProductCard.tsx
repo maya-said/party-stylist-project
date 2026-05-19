@@ -9,6 +9,7 @@ type ProductCardProps = {
   category: string;
   price: string;
   image: string;
+  badge: string;
   onClick: () => void;
 };
 
@@ -17,6 +18,7 @@ const ProductCard = ({
   category,
   price,
   image,
+  badge,
   onClick,
 }: ProductCardProps) => {
 
@@ -44,6 +46,13 @@ const ProductCard = ({
       onClick={onClick}
       className="bg-white rounded-2xl shadow-md overflow-hidden transition duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer group relative"
     >
+
+      {/* Badge */}
+      <div className="absolute top-4 left-4 z-20 bg-black text-white px-4 py-2 rounded-full text-xs font-semibold tracking-wide shadow-lg">
+
+        {badge}
+
+      </div>
 
       {/* Favorite Button */}
       <button
