@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { AnimatePresence } from "framer-motion";
+
 import ProductCard from "../components/ProductCard";
 import ProductModal from "../components/ProductModal";
 
@@ -178,17 +180,21 @@ const ProductsPage = () => {
       </div>
 
       {/* Product Modal */}
-      {
-        selectedProduct && (
-          <ProductModal
-            title={selectedProduct.title}
-            category={selectedProduct.category}
-            price={selectedProduct.price}
-            image={selectedProduct.image}
-            onClose={() => setSelectedProduct(null)}
-          />
-        )
-      }
+      <AnimatePresence>
+
+        {
+          selectedProduct && (
+            <ProductModal
+              title={selectedProduct.title}
+              category={selectedProduct.category}
+              price={selectedProduct.price}
+              image={selectedProduct.image}
+              onClose={() => setSelectedProduct(null)}
+            />
+          )
+        }
+
+      </AnimatePresence>
 
     </div>
   );
